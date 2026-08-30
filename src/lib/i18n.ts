@@ -15,6 +15,7 @@ export const translations = {
     'ui.analyzing': 'MENGANALISIS',
     'ui.validating': 'Memvalidasi jalur logika...',
     'ui.components': 'KOMPONEN',
+    'ui.locked_alert': 'AKSES DITOLAK: Stage ini terkunci. Harap selesaikan stage sebelumnya terlebih dahulu.',
     
     // Result Panel
     'result.success': 'SISTEM TERTEMBUS',
@@ -58,6 +59,7 @@ export const translations = {
     'ui.analyzing': 'ANALYZING',
     'ui.validating': 'Validating logic pathways...',
     'ui.components': 'COMPONENTS',
+    'ui.locked_alert': 'ACCESS DENIED: This stage is locked. Please complete the previous stage first.',
 
     // Result Panel
     'result.success': 'SYSTEM BREACHED',
