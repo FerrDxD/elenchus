@@ -620,103 +620,6 @@ export const levels: Level[] = [
     }
   },
   {
-    "id": "l3",
-    "group": "Kombinasi Logika",
-    "order": 1,
-    "gridSize": {
-      "width": 12,
-      "height": 8
-    },
-    "availableComponents": [
-      "WIRE",
-      "AND",
-      "OR",
-      "NOT"
-    ],
-    "inputs": [
-      {
-        "id": "in1",
-        "label": "A",
-        "position": {
-          "x": 1,
-          "y": 2
-        }
-      },
-      {
-        "id": "in2",
-        "label": "B",
-        "position": {
-          "x": 1,
-          "y": 4
-        }
-      },
-      {
-        "id": "in3",
-        "label": "C",
-        "position": {
-          "x": 1,
-          "y": 6
-        }
-      }
-    ],
-    "outputs": [
-      {
-        "id": "out1",
-        "label": "(A AND B) OR C",
-        "position": {
-          "x": 10,
-          "y": 4
-        }
-      }
-    ],
-    "testCases": [
-      {
-        "inputValues": {
-          "in1": 0,
-          "in2": 0,
-          "in3": 0
-        },
-        "expectedOutputs": {
-          "out1": 0
-        }
-      },
-      {
-        "inputValues": {
-          "in1": 1,
-          "in2": 1,
-          "in3": 0
-        },
-        "expectedOutputs": {
-          "out1": 1
-        }
-      },
-      {
-        "inputValues": {
-          "in1": 0,
-          "in2": 0,
-          "in3": 1
-        },
-        "expectedOutputs": {
-          "out1": 1
-        }
-      },
-      {
-        "inputValues": {
-          "in1": 1,
-          "in2": 0,
-          "in3": 0
-        },
-        "expectedOutputs": {
-          "out1": 0
-        }
-      }
-    ],
-    "par": {
-      "maxComponents": 2,
-      "maxTicks": 2
-    }
-  },
-  {
     "id": "gd_0",
     "group": "Gerbang Dasar",
     "order": 1,
@@ -4869,6 +4772,274 @@ export const levels: Level[] = [
     "par": {
       "maxComponents": 4,
       "maxTicks": 4
+    }
+  },
+  {
+    "id": "gd_extra_1",
+    "group": "Gerbang Dasar",
+    "order": 49,
+    "gridSize": {
+      "width": 10,
+      "height": 6
+    },
+    "availableComponents": [
+      "WIRE",
+      "AND",
+      "OR",
+      "NOT",
+      "XOR"
+    ],
+    "inputs": [
+      {
+        "id": "in1",
+        "label": "A",
+        "position": {
+          "x": 1,
+          "y": 2
+        }
+      },
+      {
+        "id": "in2",
+        "label": "B",
+        "position": {
+          "x": 1,
+          "y": 4
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": "out1",
+        "label": "A -> B",
+        "position": {
+          "x": 8,
+          "y": 3
+        }
+      }
+    ],
+    "testCases": [
+      {
+        "inputValues": {
+          "in1": 0,
+          "in2": 0
+        },
+        "expectedOutputs": {
+          "out1": 1
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 0,
+          "in2": 1
+        },
+        "expectedOutputs": {
+          "out1": 1
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 1,
+          "in2": 0
+        },
+        "expectedOutputs": {
+          "out1": 0
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 1,
+          "in2": 1
+        },
+        "expectedOutputs": {
+          "out1": 1
+        }
+      }
+    ],
+    "par": {
+      "maxComponents": 2,
+      "maxTicks": 2
+    }
+  },
+  {
+    "id": "gd_extra_2",
+    "group": "Gerbang Dasar",
+    "order": 50,
+    "gridSize": {
+      "width": 10,
+      "height": 6
+    },
+    "availableComponents": [
+      "WIRE",
+      "AND",
+      "NOT",
+      "XOR"
+    ],
+    "inputs": [
+      {
+        "id": "in1",
+        "label": "A",
+        "position": {
+          "x": 1,
+          "y": 2
+        }
+      },
+      {
+        "id": "in2",
+        "label": "B",
+        "position": {
+          "x": 1,
+          "y": 4
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": "out1",
+        "label": "A -/-> B",
+        "position": {
+          "x": 8,
+          "y": 3
+        }
+      }
+    ],
+    "testCases": [
+      {
+        "inputValues": {
+          "in1": 0,
+          "in2": 0
+        },
+        "expectedOutputs": {
+          "out1": 0
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 0,
+          "in2": 1
+        },
+        "expectedOutputs": {
+          "out1": 0
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 1,
+          "in2": 0
+        },
+        "expectedOutputs": {
+          "out1": 1
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 1,
+          "in2": 1
+        },
+        "expectedOutputs": {
+          "out1": 0
+        }
+      }
+    ],
+    "par": {
+      "maxComponents": 2,
+      "maxTicks": 2
+    }
+  },
+  {
+    "id": "l3",
+    "group": "Kombinasi Logika",
+    "order": 1,
+    "gridSize": {
+      "width": 12,
+      "height": 8
+    },
+    "availableComponents": [
+      "WIRE",
+      "AND",
+      "OR",
+      "NOT"
+    ],
+    "inputs": [
+      {
+        "id": "in1",
+        "label": "A",
+        "position": {
+          "x": 1,
+          "y": 2
+        }
+      },
+      {
+        "id": "in2",
+        "label": "B",
+        "position": {
+          "x": 1,
+          "y": 4
+        }
+      },
+      {
+        "id": "in3",
+        "label": "C",
+        "position": {
+          "x": 1,
+          "y": 6
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": "out1",
+        "label": "(A AND B) OR C",
+        "position": {
+          "x": 10,
+          "y": 4
+        }
+      }
+    ],
+    "testCases": [
+      {
+        "inputValues": {
+          "in1": 0,
+          "in2": 0,
+          "in3": 0
+        },
+        "expectedOutputs": {
+          "out1": 0
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 1,
+          "in2": 1,
+          "in3": 0
+        },
+        "expectedOutputs": {
+          "out1": 1
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 0,
+          "in2": 0,
+          "in3": 1
+        },
+        "expectedOutputs": {
+          "out1": 1
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 1,
+          "in2": 0,
+          "in3": 0
+        },
+        "expectedOutputs": {
+          "out1": 0
+        }
+      }
+    ],
+    "par": {
+      "maxComponents": 2,
+      "maxTicks": 2
     }
   },
   {
