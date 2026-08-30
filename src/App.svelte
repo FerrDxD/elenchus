@@ -77,9 +77,9 @@
         </div>
       </header>
       
-      <div class="flex-1 flex flex-col md:flex-row overflow-hidden relative z-10">
+      <div class="flex-1 flex flex-col md:flex-row overflow-hidden relative z-10 min-h-0">
         <!-- Sidebar: Bottom on mobile, Left on desktop -->
-        <div class="w-full md:w-80 h-[40vh] md:h-auto cyber-panel rounded-none border-t-2 md:border-t-0 border-b-0 border-l-0 md:border-r-2 border-[var(--color-border)] p-4 md:p-5 flex flex-col gap-4 md:gap-6 overflow-y-auto scrollbar-thin scrollbar-thumb-[var(--color-primary)] scrollbar-track-transparent order-2 md:order-1">
+        <div class="w-full md:w-80 h-[40vh] md:h-full cyber-panel rounded-none border-t-2 md:border-t-0 border-b-0 border-l-0 md:border-r-2 border-[var(--color-border)] p-4 md:p-5 flex flex-col gap-4 md:gap-6 overflow-y-auto scrollbar-thin scrollbar-thumb-[var(--color-primary)] scrollbar-track-transparent order-2 md:order-1 shrink-0">
           <ComponentPalette 
             availableComponents={level.availableComponents}
             selectedComponent={selectedComponent}
@@ -140,7 +140,7 @@
         </div>
 
         <!-- Grid Area -->
-        <div class="flex-1 p-2 md:p-8 flex items-center justify-center overflow-auto relative bg-[var(--color-card)] shadow-[inset_0_0_50px_rgba(0,0,0,0.8)] z-0 order-1 md:order-2">
+        <div class="flex-1 p-2 md:p-8 flex items-center justify-center overflow-auto relative bg-[var(--color-card)] shadow-[inset_0_0_50px_rgba(0,0,0,0.8)] z-0 order-1 md:order-2 min-h-0">
           <!-- Background scanline effect & Grid -->
           <div class="absolute inset-0 pointer-events-none opacity-[0.05] bg-[linear-gradient(var(--color-secondary)_1px,transparent_1px),linear-gradient(90deg,var(--color-secondary)_1px,transparent_1px)] bg-[size:30px_30px] z-0"></div>
           <div class="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.5)_50%),linear-gradient(90deg,rgba(236,72,153,0.03),rgba(0,255,0,0.01),rgba(139,92,246,0.03))] bg-[length:100%_4px,3px_100%] z-0"></div>
