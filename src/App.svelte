@@ -99,14 +99,6 @@
             onSelect={(c) => selectedComponent = c}
           />
 
-          {#if level.description}
-            <div class="cyber-panel p-4 relative overflow-hidden">
-              <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--color-secondary)] to-transparent"></div>
-              <h3 class="text-xs font-bold text-[var(--color-secondary)] uppercase tracking-widest mb-2 font-heading">Transmission</h3>
-              <p class="text-sm text-[var(--color-foreground)] whitespace-pre-wrap leading-relaxed opacity-90">{level.description}</p>
-            </div>
-          {/if}
-          
           <div class="cyber-panel p-4 relative">
             <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[var(--color-primary)] to-transparent"></div>
             <h3 class="text-xs font-bold text-[var(--color-primary)] uppercase tracking-widest mb-4 font-heading pl-2">Specifications</h3>
@@ -153,12 +145,23 @@
         </div>
 
         <!-- Grid Area -->
-        <div class="flex-1 p-2 md:p-8 flex items-center justify-center overflow-auto relative bg-[var(--color-card)] shadow-[inset_0_0_50px_rgba(0,0,0,0.8)] z-0 order-1 md:order-2 min-h-0">
+        <div class="flex-1 flex flex-col p-2 md:p-8 relative bg-[var(--color-card)] shadow-[inset_0_0_50px_rgba(0,0,0,0.8)] z-0 order-1 md:order-2 min-h-0">
           <!-- Background scanline effect & Grid -->
           <div class="absolute inset-0 pointer-events-none opacity-[0.05] bg-[linear-gradient(var(--color-secondary)_1px,transparent_1px),linear-gradient(90deg,var(--color-secondary)_1px,transparent_1px)] bg-[size:30px_30px] z-0"></div>
           <div class="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.5)_50%),linear-gradient(90deg,rgba(236,72,153,0.03),rgba(0,255,0,0.01),rgba(139,92,246,0.03))] bg-[length:100%_4px,3px_100%] z-0"></div>
           
-          <div class="relative z-10 shadow-[0_0_50px_rgba(8,145,178,0.15)] rounded-lg">
+          {#if level.description}
+            <div class="cyber-panel p-4 mb-4 relative z-20 shrink-0 bg-[rgba(15,23,42,0.9)] backdrop-blur-md border-[var(--color-secondary)]">
+              <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--color-secondary)] to-transparent"></div>
+              <h3 class="text-xs font-bold text-[var(--color-secondary)] uppercase tracking-widest mb-1 font-heading flex items-center gap-2">
+                <span class="w-2 h-2 bg-[var(--color-secondary)] animate-pulse rounded-full shadow-[0_0_5px_var(--color-secondary)]"></span>
+                Incoming Transmission
+              </h3>
+              <p class="text-sm text-[var(--color-foreground)] whitespace-pre-wrap leading-relaxed opacity-90 font-mono mt-2">{level.description}</p>
+            </div>
+          {/if}
+          
+          <div class="flex-1 relative z-10 shadow-[0_0_50px_rgba(8,145,178,0.15)] rounded-lg overflow-auto flex items-center justify-center min-h-0">
             <Grid 
               level={level}
               nodes={circuitStore.nodes}
