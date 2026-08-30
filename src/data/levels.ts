@@ -2,7 +2,7 @@ import type { Level } from '../engine/types';
 
 export const levels: Level[] = [
   {
-    "id": "l0",
+    "id": "t_wire",
     "group": "Tutorial",
     "order": 1,
     "gridSize": {
@@ -12,7 +12,7 @@ export const levels: Level[] = [
     "availableComponents": [
       "WIRE"
     ],
-    "description": "Transmisi Sistem: Welcome to Elencus. Tugas pertamamu adalah merutekan sinyal dari INPUT ke OUTPUT agar sesuai dengan tabel kebenaran.\nPilih WIRE dari kiri, klik INPUT (A), lalu klik OUTPUT untuk menyambungkannya. Setelah itu tekan EXECUTE.",
+    "description": "Transmisi Sistem: Welcome to Elencus. Hubungkan sinyal dari INPUT ke OUTPUT menggunakan WIRE.",
     "inputs": [
       {
         "id": "in1",
@@ -57,9 +57,9 @@ export const levels: Level[] = [
     }
   },
   {
-    "id": "l1",
-    "group": "Gerbang Dasar",
-    "order": 1,
+    "id": "t_and",
+    "group": "Tutorial",
+    "order": 2,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -68,7 +68,7 @@ export const levels: Level[] = [
       "WIRE",
       "AND"
     ],
-    "description": "Transmisi Sistem: Hubungkan kedua INPUT ke gerbang AND, lalu hubungkan outputnya ke OUTPUT. Gerbang AND akan menghasilkan output 1 hanya jika KEDUA input bernilai 1. Perhatikan tabel kebenaran di bawah.",
+    "description": "Transmisi Sistem: Gerbang AND. Menghasilkan output 1 HANYA jika KEDUA input bernilai 1.",
     "inputs": [
       {
         "id": "in1",
@@ -141,19 +141,102 @@ export const levels: Level[] = [
     }
   },
   {
-    "id": "l2",
-    "group": "Gerbang Dasar",
-    "order": 2,
+    "id": "t_or",
+    "group": "Tutorial",
+    "order": 3,
     "gridSize": {
       "width": 10,
       "height": 6
     },
     "availableComponents": [
       "WIRE",
-      "OR",
+      "OR"
+    ],
+    "description": "Transmisi Sistem: Gerbang OR. Menghasilkan output 1 jika SALAH SATU atau KEDUA input bernilai 1.",
+    "inputs": [
+      {
+        "id": "in1",
+        "label": "A",
+        "position": {
+          "x": 1,
+          "y": 2
+        }
+      },
+      {
+        "id": "in2",
+        "label": "B",
+        "position": {
+          "x": 1,
+          "y": 4
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": "out1",
+        "label": "A OR B",
+        "position": {
+          "x": 8,
+          "y": 3
+        }
+      }
+    ],
+    "testCases": [
+      {
+        "inputValues": {
+          "in1": 0,
+          "in2": 0
+        },
+        "expectedOutputs": {
+          "out1": 0
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 0,
+          "in2": 1
+        },
+        "expectedOutputs": {
+          "out1": 1
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 1,
+          "in2": 0
+        },
+        "expectedOutputs": {
+          "out1": 1
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 1,
+          "in2": 1
+        },
+        "expectedOutputs": {
+          "out1": 1
+        }
+      }
+    ],
+    "par": {
+      "maxComponents": 1,
+      "maxTicks": 1
+    }
+  },
+  {
+    "id": "t_not",
+    "group": "Tutorial",
+    "order": 4,
+    "gridSize": {
+      "width": 10,
+      "height": 6
+    },
+    "availableComponents": [
+      "WIRE",
       "NOT"
     ],
-    "description": "Transmisi Sistem: Kali ini kamu perlu membalikkan sinyal. Gunakan gerbang NOT agar saat input 0, output menjadi 1, dan sebaliknya.",
+    "description": "Transmisi Sistem: Gerbang NOT. Membalikkan sinyal. Input 0 menjadi 1, input 1 menjadi 0.",
     "inputs": [
       {
         "id": "in1",
@@ -198,6 +281,345 @@ export const levels: Level[] = [
     }
   },
   {
+    "id": "t_xor",
+    "group": "Tutorial",
+    "order": 5,
+    "gridSize": {
+      "width": 10,
+      "height": 6
+    },
+    "availableComponents": [
+      "WIRE",
+      "XOR"
+    ],
+    "description": "Transmisi Sistem: Gerbang XOR (Exclusive OR). Output bernilai 1 HANYA JIKA kedua input BERBEDA (0 dan 1).",
+    "inputs": [
+      {
+        "id": "in1",
+        "label": "A",
+        "position": {
+          "x": 1,
+          "y": 2
+        }
+      },
+      {
+        "id": "in2",
+        "label": "B",
+        "position": {
+          "x": 1,
+          "y": 4
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": "out1",
+        "label": "A XOR B",
+        "position": {
+          "x": 8,
+          "y": 3
+        }
+      }
+    ],
+    "testCases": [
+      {
+        "inputValues": {
+          "in1": 0,
+          "in2": 0
+        },
+        "expectedOutputs": {
+          "out1": 0
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 0,
+          "in2": 1
+        },
+        "expectedOutputs": {
+          "out1": 1
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 1,
+          "in2": 0
+        },
+        "expectedOutputs": {
+          "out1": 1
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 1,
+          "in2": 1
+        },
+        "expectedOutputs": {
+          "out1": 0
+        }
+      }
+    ],
+    "par": {
+      "maxComponents": 1,
+      "maxTicks": 1
+    }
+  },
+  {
+    "id": "t_nand",
+    "group": "Tutorial",
+    "order": 6,
+    "gridSize": {
+      "width": 10,
+      "height": 6
+    },
+    "availableComponents": [
+      "WIRE",
+      "AND",
+      "NOT"
+    ],
+    "description": "Transmisi Sistem: Gerbang NAND. Ini adalah kebalikan dari AND. Output 0 HANYA JIKA kedua input 1.",
+    "inputs": [
+      {
+        "id": "in1",
+        "label": "A",
+        "position": {
+          "x": 1,
+          "y": 2
+        }
+      },
+      {
+        "id": "in2",
+        "label": "B",
+        "position": {
+          "x": 1,
+          "y": 4
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": "out1",
+        "label": "A NAND B",
+        "position": {
+          "x": 8,
+          "y": 3
+        }
+      }
+    ],
+    "testCases": [
+      {
+        "inputValues": {
+          "in1": 0,
+          "in2": 0
+        },
+        "expectedOutputs": {
+          "out1": 1
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 0,
+          "in2": 1
+        },
+        "expectedOutputs": {
+          "out1": 1
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 1,
+          "in2": 0
+        },
+        "expectedOutputs": {
+          "out1": 1
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 1,
+          "in2": 1
+        },
+        "expectedOutputs": {
+          "out1": 0
+        }
+      }
+    ],
+    "par": {
+      "maxComponents": 2,
+      "maxTicks": 2
+    }
+  },
+  {
+    "id": "t_nor",
+    "group": "Tutorial",
+    "order": 7,
+    "gridSize": {
+      "width": 10,
+      "height": 6
+    },
+    "availableComponents": [
+      "WIRE",
+      "OR",
+      "NOT"
+    ],
+    "description": "Transmisi Sistem: Gerbang NOR. Kebalikan dari OR. Output 1 HANYA JIKA kedua input 0.",
+    "inputs": [
+      {
+        "id": "in1",
+        "label": "A",
+        "position": {
+          "x": 1,
+          "y": 2
+        }
+      },
+      {
+        "id": "in2",
+        "label": "B",
+        "position": {
+          "x": 1,
+          "y": 4
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": "out1",
+        "label": "A NOR B",
+        "position": {
+          "x": 8,
+          "y": 3
+        }
+      }
+    ],
+    "testCases": [
+      {
+        "inputValues": {
+          "in1": 0,
+          "in2": 0
+        },
+        "expectedOutputs": {
+          "out1": 1
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 0,
+          "in2": 1
+        },
+        "expectedOutputs": {
+          "out1": 0
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 1,
+          "in2": 0
+        },
+        "expectedOutputs": {
+          "out1": 0
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 1,
+          "in2": 1
+        },
+        "expectedOutputs": {
+          "out1": 0
+        }
+      }
+    ],
+    "par": {
+      "maxComponents": 2,
+      "maxTicks": 2
+    }
+  },
+  {
+    "id": "t_xnor",
+    "group": "Tutorial",
+    "order": 8,
+    "gridSize": {
+      "width": 10,
+      "height": 6
+    },
+    "availableComponents": [
+      "WIRE",
+      "XOR",
+      "NOT"
+    ],
+    "description": "Transmisi Sistem: Gerbang XNOR. Kebalikan dari XOR. Output bernilai 1 HANYA JIKA kedua input SAMA (keduanya 0 atau keduanya 1).",
+    "inputs": [
+      {
+        "id": "in1",
+        "label": "A",
+        "position": {
+          "x": 1,
+          "y": 2
+        }
+      },
+      {
+        "id": "in2",
+        "label": "B",
+        "position": {
+          "x": 1,
+          "y": 4
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": "out1",
+        "label": "A XNOR B",
+        "position": {
+          "x": 8,
+          "y": 3
+        }
+      }
+    ],
+    "testCases": [
+      {
+        "inputValues": {
+          "in1": 0,
+          "in2": 0
+        },
+        "expectedOutputs": {
+          "out1": 1
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 0,
+          "in2": 1
+        },
+        "expectedOutputs": {
+          "out1": 0
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 1,
+          "in2": 0
+        },
+        "expectedOutputs": {
+          "out1": 0
+        }
+      },
+      {
+        "inputValues": {
+          "in1": 1,
+          "in2": 1
+        },
+        "expectedOutputs": {
+          "out1": 1
+        }
+      }
+    ],
+    "par": {
+      "maxComponents": 2,
+      "maxTicks": 2
+    }
+  },
+  {
     "id": "l3",
     "group": "Kombinasi Logika",
     "order": 1,
@@ -211,7 +633,6 @@ export const levels: Level[] = [
       "OR",
       "NOT"
     ],
-    "description": "Transmisi Sistem: Mari gabungkan beberapa gerbang. Sirkuit ini memerlukan gabungan (A AND B) ATAU C. Pecah masalah ini menjadi dua bagian: buat gerbang AND untuk A dan B, lalu hubungkan hasilnya ke gerbang OR bersama dengan input C.",
     "inputs": [
       {
         "id": "in1",
@@ -298,7 +719,7 @@ export const levels: Level[] = [
   {
     "id": "gd_0",
     "group": "Gerbang Dasar",
-    "order": 3,
+    "order": 1,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -310,7 +731,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang NAND. Output akan 0 hanya jika kedua input bernilai 1. Sisanya 1. Perhatikan tabel kebenaran dengan saksama.",
     "inputs": [
       {
         "id": "in1",
@@ -385,7 +805,7 @@ export const levels: Level[] = [
   {
     "id": "gd_1",
     "group": "Gerbang Dasar",
-    "order": 4,
+    "order": 2,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -397,7 +817,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang NOR. Output akan 1 hanya jika kedua input bernilai 0. Ingat, gerbang NOT akan membalikkan sinyal.",
     "inputs": [
       {
         "id": "in1",
@@ -472,7 +891,7 @@ export const levels: Level[] = [
   {
     "id": "gd_2",
     "group": "Gerbang Dasar",
-    "order": 5,
+    "order": 3,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -484,7 +903,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang XOR (Exclusive OR). Output akan 1 jika kedua input berbeda. Gunakan gerbang AND untuk mensyaratkan kedua jalur aktif.",
     "inputs": [
       {
         "id": "in1",
@@ -559,7 +977,7 @@ export const levels: Level[] = [
   {
     "id": "gd_3",
     "group": "Gerbang Dasar",
-    "order": 6,
+    "order": 4,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -571,7 +989,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang XNOR. Output akan 1 jika kedua input sama. Gerbang OR akan aktif jika salah satu jalur aktif.",
     "inputs": [
       {
         "id": "in1",
@@ -646,7 +1063,7 @@ export const levels: Level[] = [
   {
     "id": "gd_4",
     "group": "Gerbang Dasar",
-    "order": 7,
+    "order": 5,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -658,7 +1075,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Output 1 hanya jika A=1 dan B=0. Kamu bisa memecah jalur input menggunakan WIRE bercabang (hubungkan lebih dari 1 WIRE ke node yang sama).",
     "inputs": [
       {
         "id": "in1",
@@ -733,7 +1149,7 @@ export const levels: Level[] = [
   {
     "id": "gd_5",
     "group": "Gerbang Dasar",
-    "order": 8,
+    "order": 6,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -745,7 +1161,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Output 1 hanya jika A=0 dan B=1. Coba kerjakan dari arah OUTPUT mundur ke INPUT.",
     "inputs": [
       {
         "id": "in1",
@@ -820,7 +1235,7 @@ export const levels: Level[] = [
   {
     "id": "gd_6",
     "group": "Gerbang Dasar",
-    "order": 9,
+    "order": 7,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -832,7 +1247,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Output 1 jika A=1 atau B=0. Jangan menyerah! Logika sirkuit memang butuh kesabaran.",
     "inputs": [
       {
         "id": "in1",
@@ -907,7 +1321,7 @@ export const levels: Level[] = [
   {
     "id": "gd_7",
     "group": "Gerbang Dasar",
-    "order": 10,
+    "order": 8,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -919,7 +1333,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Output 1 jika A=0 atau B=1. Gunakan instingmu sebagai engineer sistem.",
     "inputs": [
       {
         "id": "in1",
@@ -994,7 +1407,7 @@ export const levels: Level[] = [
   {
     "id": "gd_8",
     "group": "Gerbang Dasar",
-    "order": 11,
+    "order": 9,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1006,7 +1419,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang NAND. Output akan 0 hanya jika kedua input bernilai 1. Sisanya 1. Perhatikan tabel kebenaran dengan saksama.",
     "inputs": [
       {
         "id": "in1",
@@ -1081,7 +1493,7 @@ export const levels: Level[] = [
   {
     "id": "gd_9",
     "group": "Gerbang Dasar",
-    "order": 12,
+    "order": 10,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1093,7 +1505,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang NOR. Output akan 1 hanya jika kedua input bernilai 0. Ingat, gerbang NOT akan membalikkan sinyal.",
     "inputs": [
       {
         "id": "in1",
@@ -1168,7 +1579,7 @@ export const levels: Level[] = [
   {
     "id": "gd_10",
     "group": "Gerbang Dasar",
-    "order": 13,
+    "order": 11,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1180,7 +1591,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang XOR (Exclusive OR). Output akan 1 jika kedua input berbeda. Gunakan gerbang AND untuk mensyaratkan kedua jalur aktif.",
     "inputs": [
       {
         "id": "in1",
@@ -1255,7 +1665,7 @@ export const levels: Level[] = [
   {
     "id": "gd_11",
     "group": "Gerbang Dasar",
-    "order": 14,
+    "order": 12,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1267,7 +1677,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang XNOR. Output akan 1 jika kedua input sama. Gerbang OR akan aktif jika salah satu jalur aktif.",
     "inputs": [
       {
         "id": "in1",
@@ -1342,7 +1751,7 @@ export const levels: Level[] = [
   {
     "id": "gd_12",
     "group": "Gerbang Dasar",
-    "order": 15,
+    "order": 13,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1354,7 +1763,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Output 1 hanya jika A=1 dan B=0. Kamu bisa memecah jalur input menggunakan WIRE bercabang (hubungkan lebih dari 1 WIRE ke node yang sama).",
     "inputs": [
       {
         "id": "in1",
@@ -1429,7 +1837,7 @@ export const levels: Level[] = [
   {
     "id": "gd_13",
     "group": "Gerbang Dasar",
-    "order": 16,
+    "order": 14,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1441,7 +1849,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Output 1 hanya jika A=0 dan B=1. Coba kerjakan dari arah OUTPUT mundur ke INPUT.",
     "inputs": [
       {
         "id": "in1",
@@ -1516,7 +1923,7 @@ export const levels: Level[] = [
   {
     "id": "gd_14",
     "group": "Gerbang Dasar",
-    "order": 17,
+    "order": 15,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1528,7 +1935,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Output 1 jika A=1 atau B=0. Jangan menyerah! Logika sirkuit memang butuh kesabaran.",
     "inputs": [
       {
         "id": "in1",
@@ -1603,7 +2009,7 @@ export const levels: Level[] = [
   {
     "id": "gd_15",
     "group": "Gerbang Dasar",
-    "order": 18,
+    "order": 16,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1615,7 +2021,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Output 1 jika A=0 atau B=1. Gunakan instingmu sebagai engineer sistem.",
     "inputs": [
       {
         "id": "in1",
@@ -1690,7 +2095,7 @@ export const levels: Level[] = [
   {
     "id": "gd_16",
     "group": "Gerbang Dasar",
-    "order": 19,
+    "order": 17,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1702,7 +2107,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang NAND. Output akan 0 hanya jika kedua input bernilai 1. Sisanya 1. Perhatikan tabel kebenaran dengan saksama.",
     "inputs": [
       {
         "id": "in1",
@@ -1777,7 +2181,7 @@ export const levels: Level[] = [
   {
     "id": "gd_17",
     "group": "Gerbang Dasar",
-    "order": 20,
+    "order": 18,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1789,7 +2193,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang NOR. Output akan 1 hanya jika kedua input bernilai 0. Ingat, gerbang NOT akan membalikkan sinyal.",
     "inputs": [
       {
         "id": "in1",
@@ -1864,7 +2267,7 @@ export const levels: Level[] = [
   {
     "id": "gd_18",
     "group": "Gerbang Dasar",
-    "order": 21,
+    "order": 19,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1876,7 +2279,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang XOR (Exclusive OR). Output akan 1 jika kedua input berbeda. Gunakan gerbang AND untuk mensyaratkan kedua jalur aktif.",
     "inputs": [
       {
         "id": "in1",
@@ -1951,7 +2353,7 @@ export const levels: Level[] = [
   {
     "id": "gd_19",
     "group": "Gerbang Dasar",
-    "order": 22,
+    "order": 20,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1963,7 +2365,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang XNOR. Output akan 1 jika kedua input sama. Gerbang OR akan aktif jika salah satu jalur aktif.",
     "inputs": [
       {
         "id": "in1",
@@ -2038,7 +2439,7 @@ export const levels: Level[] = [
   {
     "id": "gd_20",
     "group": "Gerbang Dasar",
-    "order": 23,
+    "order": 21,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2050,7 +2451,6 @@ export const levels: Level[] = [
       "NOT",
       "XOR"
     ],
-    "description": "Transmisi Sistem: Output 1 hanya jika A=1 dan B=0. Kamu bisa memecah jalur input menggunakan WIRE bercabang (hubungkan lebih dari 1 WIRE ke node yang sama).",
     "inputs": [
       {
         "id": "in1",
@@ -2125,7 +2525,7 @@ export const levels: Level[] = [
   {
     "id": "gd_21",
     "group": "Gerbang Dasar",
-    "order": 24,
+    "order": 22,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2138,7 +2538,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Output 1 hanya jika A=0 dan B=1. Coba kerjakan dari arah OUTPUT mundur ke INPUT.",
     "inputs": [
       {
         "id": "in1",
@@ -2213,7 +2612,7 @@ export const levels: Level[] = [
   {
     "id": "gd_22",
     "group": "Gerbang Dasar",
-    "order": 25,
+    "order": 23,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2226,7 +2625,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Output 1 jika A=1 atau B=0. Jangan menyerah! Logika sirkuit memang butuh kesabaran.",
     "inputs": [
       {
         "id": "in1",
@@ -2301,7 +2699,7 @@ export const levels: Level[] = [
   {
     "id": "gd_23",
     "group": "Gerbang Dasar",
-    "order": 26,
+    "order": 24,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2314,7 +2712,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Output 1 jika A=0 atau B=1. Gunakan instingmu sebagai engineer sistem.",
     "inputs": [
       {
         "id": "in1",
@@ -2389,7 +2786,7 @@ export const levels: Level[] = [
   {
     "id": "gd_24",
     "group": "Gerbang Dasar",
-    "order": 27,
+    "order": 25,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2402,7 +2799,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang NAND. Output akan 0 hanya jika kedua input bernilai 1. Sisanya 1. Perhatikan tabel kebenaran dengan saksama.",
     "inputs": [
       {
         "id": "in1",
@@ -2477,7 +2873,7 @@ export const levels: Level[] = [
   {
     "id": "gd_25",
     "group": "Gerbang Dasar",
-    "order": 28,
+    "order": 26,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2490,7 +2886,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang NOR. Output akan 1 hanya jika kedua input bernilai 0. Ingat, gerbang NOT akan membalikkan sinyal.",
     "inputs": [
       {
         "id": "in1",
@@ -2565,7 +2960,7 @@ export const levels: Level[] = [
   {
     "id": "gd_26",
     "group": "Gerbang Dasar",
-    "order": 29,
+    "order": 27,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2578,7 +2973,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang XOR (Exclusive OR). Output akan 1 jika kedua input berbeda. Gunakan gerbang AND untuk mensyaratkan kedua jalur aktif.",
     "inputs": [
       {
         "id": "in1",
@@ -2653,7 +3047,7 @@ export const levels: Level[] = [
   {
     "id": "gd_27",
     "group": "Gerbang Dasar",
-    "order": 30,
+    "order": 28,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2666,7 +3060,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang XNOR. Output akan 1 jika kedua input sama. Gerbang OR akan aktif jika salah satu jalur aktif.",
     "inputs": [
       {
         "id": "in1",
@@ -2741,7 +3134,7 @@ export const levels: Level[] = [
   {
     "id": "gd_28",
     "group": "Gerbang Dasar",
-    "order": 31,
+    "order": 29,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2754,7 +3147,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Output 1 hanya jika A=1 dan B=0. Kamu bisa memecah jalur input menggunakan WIRE bercabang (hubungkan lebih dari 1 WIRE ke node yang sama).",
     "inputs": [
       {
         "id": "in1",
@@ -2829,7 +3221,7 @@ export const levels: Level[] = [
   {
     "id": "gd_29",
     "group": "Gerbang Dasar",
-    "order": 32,
+    "order": 30,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2842,7 +3234,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Output 1 hanya jika A=0 dan B=1. Coba kerjakan dari arah OUTPUT mundur ke INPUT.",
     "inputs": [
       {
         "id": "in1",
@@ -2917,7 +3308,7 @@ export const levels: Level[] = [
   {
     "id": "gd_30",
     "group": "Gerbang Dasar",
-    "order": 33,
+    "order": 31,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2930,7 +3321,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Output 1 jika A=1 atau B=0. Jangan menyerah! Logika sirkuit memang butuh kesabaran.",
     "inputs": [
       {
         "id": "in1",
@@ -3005,7 +3395,7 @@ export const levels: Level[] = [
   {
     "id": "gd_31",
     "group": "Gerbang Dasar",
-    "order": 34,
+    "order": 32,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3018,7 +3408,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Output 1 jika A=0 atau B=1. Gunakan instingmu sebagai engineer sistem.",
     "inputs": [
       {
         "id": "in1",
@@ -3093,7 +3482,7 @@ export const levels: Level[] = [
   {
     "id": "gd_32",
     "group": "Gerbang Dasar",
-    "order": 35,
+    "order": 33,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3106,7 +3495,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang NAND. Output akan 0 hanya jika kedua input bernilai 1. Sisanya 1. Perhatikan tabel kebenaran dengan saksama.",
     "inputs": [
       {
         "id": "in1",
@@ -3181,7 +3569,7 @@ export const levels: Level[] = [
   {
     "id": "gd_33",
     "group": "Gerbang Dasar",
-    "order": 36,
+    "order": 34,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3194,7 +3582,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang NOR. Output akan 1 hanya jika kedua input bernilai 0. Ingat, gerbang NOT akan membalikkan sinyal.",
     "inputs": [
       {
         "id": "in1",
@@ -3269,7 +3656,7 @@ export const levels: Level[] = [
   {
     "id": "gd_34",
     "group": "Gerbang Dasar",
-    "order": 37,
+    "order": 35,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3282,7 +3669,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang XOR (Exclusive OR). Output akan 1 jika kedua input berbeda. Gunakan gerbang AND untuk mensyaratkan kedua jalur aktif.",
     "inputs": [
       {
         "id": "in1",
@@ -3357,7 +3743,7 @@ export const levels: Level[] = [
   {
     "id": "gd_35",
     "group": "Gerbang Dasar",
-    "order": 38,
+    "order": 36,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3370,7 +3756,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang XNOR. Output akan 1 jika kedua input sama. Gerbang OR akan aktif jika salah satu jalur aktif.",
     "inputs": [
       {
         "id": "in1",
@@ -3445,7 +3830,7 @@ export const levels: Level[] = [
   {
     "id": "gd_36",
     "group": "Gerbang Dasar",
-    "order": 39,
+    "order": 37,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3458,7 +3843,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Output 1 hanya jika A=1 dan B=0. Kamu bisa memecah jalur input menggunakan WIRE bercabang (hubungkan lebih dari 1 WIRE ke node yang sama).",
     "inputs": [
       {
         "id": "in1",
@@ -3533,7 +3917,7 @@ export const levels: Level[] = [
   {
     "id": "gd_37",
     "group": "Gerbang Dasar",
-    "order": 40,
+    "order": 38,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3546,7 +3930,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Output 1 hanya jika A=0 dan B=1. Coba kerjakan dari arah OUTPUT mundur ke INPUT.",
     "inputs": [
       {
         "id": "in1",
@@ -3621,7 +4004,7 @@ export const levels: Level[] = [
   {
     "id": "gd_38",
     "group": "Gerbang Dasar",
-    "order": 41,
+    "order": 39,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3634,7 +4017,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Output 1 jika A=1 atau B=0. Jangan menyerah! Logika sirkuit memang butuh kesabaran.",
     "inputs": [
       {
         "id": "in1",
@@ -3709,7 +4091,7 @@ export const levels: Level[] = [
   {
     "id": "gd_39",
     "group": "Gerbang Dasar",
-    "order": 42,
+    "order": 40,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3722,7 +4104,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Output 1 jika A=0 atau B=1. Gunakan instingmu sebagai engineer sistem.",
     "inputs": [
       {
         "id": "in1",
@@ -3797,7 +4178,7 @@ export const levels: Level[] = [
   {
     "id": "gd_40",
     "group": "Gerbang Dasar",
-    "order": 43,
+    "order": 41,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3810,7 +4191,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang NAND. Output akan 0 hanya jika kedua input bernilai 1. Sisanya 1. Perhatikan tabel kebenaran dengan saksama.",
     "inputs": [
       {
         "id": "in1",
@@ -3885,7 +4265,7 @@ export const levels: Level[] = [
   {
     "id": "gd_41",
     "group": "Gerbang Dasar",
-    "order": 44,
+    "order": 42,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3898,7 +4278,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang NOR. Output akan 1 hanya jika kedua input bernilai 0. Ingat, gerbang NOT akan membalikkan sinyal.",
     "inputs": [
       {
         "id": "in1",
@@ -3973,7 +4352,7 @@ export const levels: Level[] = [
   {
     "id": "gd_42",
     "group": "Gerbang Dasar",
-    "order": 45,
+    "order": 43,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3986,7 +4365,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang XOR (Exclusive OR). Output akan 1 jika kedua input berbeda. Gunakan gerbang AND untuk mensyaratkan kedua jalur aktif.",
     "inputs": [
       {
         "id": "in1",
@@ -4061,7 +4439,7 @@ export const levels: Level[] = [
   {
     "id": "gd_43",
     "group": "Gerbang Dasar",
-    "order": 46,
+    "order": 44,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -4074,7 +4452,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Buatlah gerbang XNOR. Output akan 1 jika kedua input sama. Gerbang OR akan aktif jika salah satu jalur aktif.",
     "inputs": [
       {
         "id": "in1",
@@ -4149,7 +4526,7 @@ export const levels: Level[] = [
   {
     "id": "gd_44",
     "group": "Gerbang Dasar",
-    "order": 47,
+    "order": 45,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -4162,7 +4539,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Output 1 hanya jika A=1 dan B=0. Kamu bisa memecah jalur input menggunakan WIRE bercabang (hubungkan lebih dari 1 WIRE ke node yang sama).",
     "inputs": [
       {
         "id": "in1",
@@ -4237,7 +4613,7 @@ export const levels: Level[] = [
   {
     "id": "gd_45",
     "group": "Gerbang Dasar",
-    "order": 48,
+    "order": 46,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -4250,7 +4626,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Output 1 hanya jika A=0 dan B=1. Coba kerjakan dari arah OUTPUT mundur ke INPUT.",
     "inputs": [
       {
         "id": "in1",
@@ -4325,7 +4700,7 @@ export const levels: Level[] = [
   {
     "id": "gd_46",
     "group": "Gerbang Dasar",
-    "order": 49,
+    "order": 47,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -4338,7 +4713,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Output 1 jika A=1 atau B=0. Jangan menyerah! Logika sirkuit memang butuh kesabaran.",
     "inputs": [
       {
         "id": "in1",
@@ -4413,7 +4787,7 @@ export const levels: Level[] = [
   {
     "id": "gd_47",
     "group": "Gerbang Dasar",
-    "order": 50,
+    "order": 48,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -4426,7 +4800,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Output 1 jika A=0 atau B=1. Gunakan instingmu sebagai engineer sistem.",
     "inputs": [
       {
         "id": "in1",
@@ -4514,7 +4887,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Sirkuit Mayoritas: Output 1 jika setidaknya dua dari tiga input bernilai 1. Jangan lupa optimasi sirkuitmu. Pastikan sambungan antar gerbang efisien.",
     "inputs": [
       {
         "id": "in1",
@@ -4654,7 +5026,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Sirkuit Minoritas: Output 1 jika paling banyak satu input bernilai 1. Jangan lupa optimasi sirkuitmu. Pastikan sambungan antar gerbang efisien.",
     "inputs": [
       {
         "id": "in1",
@@ -4794,7 +5165,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Paritas Ganjil: Output 1 jika jumlah input bernilai 1 adalah ganjil (1 atau 3). Jangan lupa optimasi sirkuitmu. Pastikan sambungan antar gerbang efisien.",
     "inputs": [
       {
         "id": "in1",
@@ -4934,7 +5304,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Paritas Genap: Output 1 jika jumlah input bernilai 1 adalah genap (0 atau 2). Jangan lupa optimasi sirkuitmu. Pastikan sambungan antar gerbang efisien.",
     "inputs": [
       {
         "id": "in1",
@@ -5074,7 +5443,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Multiplexer 2-to-1: Jika A=1 output B, jika A=0 output C. Jangan lupa optimasi sirkuitmu. Pastikan sambungan antar gerbang efisien.",
     "inputs": [
       {
         "id": "in1",
@@ -5214,7 +5582,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Output 1 jika C=1 DAN salah satu dari A atau B adalah 1. Jangan lupa optimasi sirkuitmu. Pastikan sambungan antar gerbang efisien.",
     "inputs": [
       {
         "id": "in1",
@@ -5354,7 +5721,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Gabungan logika: Output 1 jika (A=1 dan B=1) ATAU (C=0). Jangan lupa optimasi sirkuitmu. Pastikan sambungan antar gerbang efisien.",
     "inputs": [
       {
         "id": "in1",
@@ -5494,7 +5860,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Sirkuit Mayoritas: Output 1 jika setidaknya dua dari tiga input bernilai 1. Jangan lupa optimasi sirkuitmu. Pastikan sambungan antar gerbang efisien.",
     "inputs": [
       {
         "id": "in1",
@@ -5634,7 +5999,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Sirkuit Minoritas: Output 1 jika paling banyak satu input bernilai 1. Jangan lupa optimasi sirkuitmu. Pastikan sambungan antar gerbang efisien.",
     "inputs": [
       {
         "id": "in1",
@@ -5774,7 +6138,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Paritas Ganjil: Output 1 jika jumlah input bernilai 1 adalah ganjil (1 atau 3). Jangan lupa optimasi sirkuitmu. Pastikan sambungan antar gerbang efisien.",
     "inputs": [
       {
         "id": "in1",
@@ -5914,7 +6277,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Paritas Genap: Output 1 jika jumlah input bernilai 1 adalah genap (0 atau 2). Jangan lupa optimasi sirkuitmu. Pastikan sambungan antar gerbang efisien.",
     "inputs": [
       {
         "id": "in1",
@@ -6054,7 +6416,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Multiplexer 2-to-1: Jika A=1 output B, jika A=0 output C. Jangan lupa optimasi sirkuitmu. Pastikan sambungan antar gerbang efisien.",
     "inputs": [
       {
         "id": "in1",
@@ -6194,7 +6555,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Output 1 jika C=1 DAN salah satu dari A atau B adalah 1. Jangan lupa optimasi sirkuitmu. Pastikan sambungan antar gerbang efisien.",
     "inputs": [
       {
         "id": "in1",
@@ -6334,7 +6694,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Gabungan logika: Output 1 jika (A=1 dan B=1) ATAU (C=0). Jangan lupa optimasi sirkuitmu. Pastikan sambungan antar gerbang efisien.",
     "inputs": [
       {
         "id": "in1",
@@ -6474,7 +6833,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Sirkuit Mayoritas: Output 1 jika setidaknya dua dari tiga input bernilai 1. Jangan lupa optimasi sirkuitmu. Pastikan sambungan antar gerbang efisien.",
     "inputs": [
       {
         "id": "in1",
@@ -6614,7 +6972,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Sirkuit Minoritas: Output 1 jika paling banyak satu input bernilai 1. Jangan lupa optimasi sirkuitmu. Pastikan sambungan antar gerbang efisien.",
     "inputs": [
       {
         "id": "in1",
@@ -6754,7 +7111,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Paritas Ganjil: Output 1 jika jumlah input bernilai 1 adalah ganjil (1 atau 3). Jangan lupa optimasi sirkuitmu. Pastikan sambungan antar gerbang efisien.",
     "inputs": [
       {
         "id": "in1",
@@ -6894,7 +7250,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Paritas Genap: Output 1 jika jumlah input bernilai 1 adalah genap (0 atau 2). Jangan lupa optimasi sirkuitmu. Pastikan sambungan antar gerbang efisien.",
     "inputs": [
       {
         "id": "in1",
@@ -7034,7 +7389,6 @@ export const levels: Level[] = [
       "XOR",
       "SPLITTER"
     ],
-    "description": "Transmisi Sistem: Multiplexer 2-to-1: Jika A=1 output B, jika A=0 output C. Jangan lupa optimasi sirkuitmu. Pastikan sambungan antar gerbang efisien.",
     "inputs": [
       {
         "id": "in1",
