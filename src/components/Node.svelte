@@ -12,11 +12,17 @@
 </script>
 
 <g class="transition-transform hover:scale-105 cursor-pointer">
-  {#if type === 'INPUT' || type === 'OUTPUT'}
-    <rect x={size * 0.15} y={size * 0.15} width={size * 0.7} height={size * 0.7} rx="6" fill="var(--node-bg)" stroke="var(--node-border)" stroke-width="2" class="glow-effect" />
+  {#if type === 'INPUT'}
+    <path d="M {size*0.15} {size*0.15} L {size*0.75} {size*0.15} L {size*0.85} {size*0.5} L {size*0.75} {size*0.85} L {size*0.15} {size*0.85} Z" fill="var(--node-bg)" stroke="var(--node-border)" stroke-width="2" stroke-linejoin="round" class="glow-effect" />
     <!-- Inner decorative lines -->
     <line x1={size * 0.25} y1={size * 0.25} x2={size * 0.35} y2={size * 0.25} stroke="var(--node-border)" stroke-width="1" opacity="0.5" />
-    <text x={cx} y={cy} text-anchor="middle" dominant-baseline="central" fill="var(--text-color)" font-size="14" font-weight="900" font-family="monospace" letter-spacing="1">{label}</text>
+    <text x={cx - size*0.02} y={cy} text-anchor="middle" dominant-baseline="central" fill="var(--text-color)" font-size="14" font-weight="900" font-family="monospace" letter-spacing="1">{label}</text>
+  
+  {:else if type === 'OUTPUT'}
+    <path d="M {size*0.15} {size*0.15} L {size*0.85} {size*0.15} L {size*0.85} {size*0.85} L {size*0.15} {size*0.85} L {size*0.25} {size*0.5} Z" fill="var(--node-bg)" stroke="var(--node-border)" stroke-width="2" stroke-linejoin="round" class="glow-effect" />
+    <!-- Inner decorative lines -->
+    <line x1={size * 0.75} y1={size * 0.75} x2={size * 0.65} y2={size * 0.75} stroke="var(--node-border)" stroke-width="1" opacity="0.5" />
+    <text x={cx + size*0.02} y={cy} text-anchor="middle" dominant-baseline="central" fill="var(--text-color)" font-size="14" font-weight="900" font-family="monospace" letter-spacing="1">{label}</text>
   
   {:else if type === 'AND'}
     <path d="M {size*0.2} {size*0.2} L {size*0.5} {size*0.2} A {size*0.3} {size*0.3} 0 0 1 {size*0.5} {size*0.8} L {size*0.2} {size*0.8} Z" fill="var(--node-bg)" stroke="var(--node-border)" stroke-width="2" class="glow-effect" />
