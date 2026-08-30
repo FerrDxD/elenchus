@@ -17,11 +17,14 @@
 
   let level = $derived(levels.find(l => l.id === currentLevelId));
 
+  let isProcessing = $state(false);
+
   function startLevel(id: string) {
     currentLevelId = id;
     circuitStore.clear();
     simulationResult = null;
     selectedComponent = null;
+    isProcessing = false;
 
     const lvl = levels.find(l => l.id === id);
     if (lvl) {
@@ -36,14 +39,24 @@
   }
 
   function handleRun() {
-    if (!level) return;
-    simulationResult = validateCircuit(circuitStore.getCircuit(), level);
-    if (simulationResult.passed) {
-      progressStore.completeLevel(level.id, simulationResult.ticks);
-    }
+    if (!level || isProcessing) return;
+    
+    // Start processing animation
+    isProcessing = true;
+    simulationResult = null;
+    
+    // Simulate system verification delay (600ms)
+    setTimeout(() => {
+      simulationResult = validateCircuit(circuitStore.getCircuit(), level!);
+      if (simulationResult.passed) {
+        progressStore.completeLevel(level!.id, simulationResult.ticks);
+      }
+      isProcessing = false;
+    }, 600);
   }
 
   function goBack() {
+    if (isProcessing) return;
     currentLevelId = null;
   }
 </script>
@@ -158,6 +171,26 @@
           </div>
         </div>
       </div>
+
+      {#if isProcessing}
+        <div class="absolute inset-0 z-50 flex items-center justify-center bg-[rgba(15,23,42,0.8)] backdrop-blur-sm">
+          <div class="cyber-panel p-8 flex flex-col items-center gap-4 relative overflow-hidden max-w-sm w-full mx-4">
+            <!-- Glitch / scanline effect inside modal -->
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-primary)] to-transparent opacity-20 animate-scanline pointer-events-none"></div>
+            
+            <div class="w-16 h-16 rounded-full border-4 border-[var(--color-border)] border-t-[var(--color-primary)] border-b-[var(--color-secondary)] animate-spin shadow-[0_0_15px_var(--color-primary)]"></div>
+            
+            <div class="text-center">
+              <h2 class="text-xl font-heading font-black text-[var(--color-primary)] tracking-widest drop-shadow-[0_0_8px_var(--color-primary)] animate-pulse-fast">ANALYZING</h2>
+              <p class="text-xs text-[var(--color-muted-foreground)] mt-2 font-mono uppercase tracking-widest">Validating logic pathways...</p>
+            </div>
+            
+            <div class="w-full h-1 bg-[var(--color-border)] mt-2">
+              <div class="h-full bg-[var(--color-primary)] shadow-[0_0_10px_var(--color-primary)]" style="width: 100%; animation: pulse-fast 0.5s infinite alternate;"></div>
+            </div>
+          </div>
+        </div>
+      {/if}
     </div>
   {/if}
 </main>

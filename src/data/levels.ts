@@ -4,7 +4,7 @@ export const levels: Level[] = [
   {
     "id": "l0",
     "group": "Tutorial",
-    "order": 0,
+    "order": 1,
     "gridSize": {
       "width": 8,
       "height": 4
@@ -200,7 +200,7 @@ export const levels: Level[] = [
   {
     "id": "l3",
     "group": "Kombinasi Logika",
-    "order": 3,
+    "order": 1,
     "gridSize": {
       "width": 12,
       "height": 8
@@ -298,7 +298,7 @@ export const levels: Level[] = [
   {
     "id": "gd_0",
     "group": "Gerbang Dasar",
-    "order": 4,
+    "order": 3,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -385,7 +385,7 @@ export const levels: Level[] = [
   {
     "id": "gd_1",
     "group": "Gerbang Dasar",
-    "order": 5,
+    "order": 4,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -472,7 +472,7 @@ export const levels: Level[] = [
   {
     "id": "gd_2",
     "group": "Gerbang Dasar",
-    "order": 6,
+    "order": 5,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -559,7 +559,7 @@ export const levels: Level[] = [
   {
     "id": "gd_3",
     "group": "Gerbang Dasar",
-    "order": 7,
+    "order": 6,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -646,7 +646,7 @@ export const levels: Level[] = [
   {
     "id": "gd_4",
     "group": "Gerbang Dasar",
-    "order": 8,
+    "order": 7,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -733,7 +733,7 @@ export const levels: Level[] = [
   {
     "id": "gd_5",
     "group": "Gerbang Dasar",
-    "order": 9,
+    "order": 8,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -820,7 +820,7 @@ export const levels: Level[] = [
   {
     "id": "gd_6",
     "group": "Gerbang Dasar",
-    "order": 10,
+    "order": 9,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -907,7 +907,7 @@ export const levels: Level[] = [
   {
     "id": "gd_7",
     "group": "Gerbang Dasar",
-    "order": 11,
+    "order": 10,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -994,7 +994,7 @@ export const levels: Level[] = [
   {
     "id": "gd_8",
     "group": "Gerbang Dasar",
-    "order": 12,
+    "order": 11,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1081,7 +1081,7 @@ export const levels: Level[] = [
   {
     "id": "gd_9",
     "group": "Gerbang Dasar",
-    "order": 13,
+    "order": 12,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1168,7 +1168,7 @@ export const levels: Level[] = [
   {
     "id": "gd_10",
     "group": "Gerbang Dasar",
-    "order": 14,
+    "order": 13,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1255,7 +1255,7 @@ export const levels: Level[] = [
   {
     "id": "gd_11",
     "group": "Gerbang Dasar",
-    "order": 15,
+    "order": 14,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1342,7 +1342,7 @@ export const levels: Level[] = [
   {
     "id": "gd_12",
     "group": "Gerbang Dasar",
-    "order": 16,
+    "order": 15,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1429,7 +1429,7 @@ export const levels: Level[] = [
   {
     "id": "gd_13",
     "group": "Gerbang Dasar",
-    "order": 17,
+    "order": 16,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1516,7 +1516,7 @@ export const levels: Level[] = [
   {
     "id": "gd_14",
     "group": "Gerbang Dasar",
-    "order": 18,
+    "order": 17,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1603,7 +1603,7 @@ export const levels: Level[] = [
   {
     "id": "gd_15",
     "group": "Gerbang Dasar",
-    "order": 19,
+    "order": 18,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1690,7 +1690,7 @@ export const levels: Level[] = [
   {
     "id": "gd_16",
     "group": "Gerbang Dasar",
-    "order": 20,
+    "order": 19,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1777,7 +1777,7 @@ export const levels: Level[] = [
   {
     "id": "gd_17",
     "group": "Gerbang Dasar",
-    "order": 21,
+    "order": 20,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1864,7 +1864,7 @@ export const levels: Level[] = [
   {
     "id": "gd_18",
     "group": "Gerbang Dasar",
-    "order": 22,
+    "order": 21,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -1951,7 +1951,7 @@ export const levels: Level[] = [
   {
     "id": "gd_19",
     "group": "Gerbang Dasar",
-    "order": 23,
+    "order": 22,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2038,7 +2038,7 @@ export const levels: Level[] = [
   {
     "id": "gd_20",
     "group": "Gerbang Dasar",
-    "order": 24,
+    "order": 23,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2125,7 +2125,7 @@ export const levels: Level[] = [
   {
     "id": "gd_21",
     "group": "Gerbang Dasar",
-    "order": 25,
+    "order": 24,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2213,7 +2213,7 @@ export const levels: Level[] = [
   {
     "id": "gd_22",
     "group": "Gerbang Dasar",
-    "order": 26,
+    "order": 25,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2301,7 +2301,7 @@ export const levels: Level[] = [
   {
     "id": "gd_23",
     "group": "Gerbang Dasar",
-    "order": 27,
+    "order": 26,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2389,7 +2389,7 @@ export const levels: Level[] = [
   {
     "id": "gd_24",
     "group": "Gerbang Dasar",
-    "order": 28,
+    "order": 27,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2477,7 +2477,7 @@ export const levels: Level[] = [
   {
     "id": "gd_25",
     "group": "Gerbang Dasar",
-    "order": 29,
+    "order": 28,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2565,7 +2565,7 @@ export const levels: Level[] = [
   {
     "id": "gd_26",
     "group": "Gerbang Dasar",
-    "order": 30,
+    "order": 29,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2653,7 +2653,7 @@ export const levels: Level[] = [
   {
     "id": "gd_27",
     "group": "Gerbang Dasar",
-    "order": 31,
+    "order": 30,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2741,7 +2741,7 @@ export const levels: Level[] = [
   {
     "id": "gd_28",
     "group": "Gerbang Dasar",
-    "order": 32,
+    "order": 31,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2829,7 +2829,7 @@ export const levels: Level[] = [
   {
     "id": "gd_29",
     "group": "Gerbang Dasar",
-    "order": 33,
+    "order": 32,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -2917,7 +2917,7 @@ export const levels: Level[] = [
   {
     "id": "gd_30",
     "group": "Gerbang Dasar",
-    "order": 34,
+    "order": 33,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3005,7 +3005,7 @@ export const levels: Level[] = [
   {
     "id": "gd_31",
     "group": "Gerbang Dasar",
-    "order": 35,
+    "order": 34,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3093,7 +3093,7 @@ export const levels: Level[] = [
   {
     "id": "gd_32",
     "group": "Gerbang Dasar",
-    "order": 36,
+    "order": 35,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3181,7 +3181,7 @@ export const levels: Level[] = [
   {
     "id": "gd_33",
     "group": "Gerbang Dasar",
-    "order": 37,
+    "order": 36,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3269,7 +3269,7 @@ export const levels: Level[] = [
   {
     "id": "gd_34",
     "group": "Gerbang Dasar",
-    "order": 38,
+    "order": 37,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3357,7 +3357,7 @@ export const levels: Level[] = [
   {
     "id": "gd_35",
     "group": "Gerbang Dasar",
-    "order": 39,
+    "order": 38,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3445,7 +3445,7 @@ export const levels: Level[] = [
   {
     "id": "gd_36",
     "group": "Gerbang Dasar",
-    "order": 40,
+    "order": 39,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3533,7 +3533,7 @@ export const levels: Level[] = [
   {
     "id": "gd_37",
     "group": "Gerbang Dasar",
-    "order": 41,
+    "order": 40,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3621,7 +3621,7 @@ export const levels: Level[] = [
   {
     "id": "gd_38",
     "group": "Gerbang Dasar",
-    "order": 42,
+    "order": 41,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3709,7 +3709,7 @@ export const levels: Level[] = [
   {
     "id": "gd_39",
     "group": "Gerbang Dasar",
-    "order": 43,
+    "order": 42,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3797,7 +3797,7 @@ export const levels: Level[] = [
   {
     "id": "gd_40",
     "group": "Gerbang Dasar",
-    "order": 44,
+    "order": 43,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3885,7 +3885,7 @@ export const levels: Level[] = [
   {
     "id": "gd_41",
     "group": "Gerbang Dasar",
-    "order": 45,
+    "order": 44,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -3973,7 +3973,7 @@ export const levels: Level[] = [
   {
     "id": "gd_42",
     "group": "Gerbang Dasar",
-    "order": 46,
+    "order": 45,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -4061,7 +4061,7 @@ export const levels: Level[] = [
   {
     "id": "gd_43",
     "group": "Gerbang Dasar",
-    "order": 47,
+    "order": 46,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -4149,7 +4149,7 @@ export const levels: Level[] = [
   {
     "id": "gd_44",
     "group": "Gerbang Dasar",
-    "order": 48,
+    "order": 47,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -4237,7 +4237,7 @@ export const levels: Level[] = [
   {
     "id": "gd_45",
     "group": "Gerbang Dasar",
-    "order": 49,
+    "order": 48,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -4325,7 +4325,7 @@ export const levels: Level[] = [
   {
     "id": "gd_46",
     "group": "Gerbang Dasar",
-    "order": 50,
+    "order": 49,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -4413,7 +4413,7 @@ export const levels: Level[] = [
   {
     "id": "gd_47",
     "group": "Gerbang Dasar",
-    "order": 51,
+    "order": 50,
     "gridSize": {
       "width": 10,
       "height": 6
@@ -4501,7 +4501,7 @@ export const levels: Level[] = [
   {
     "id": "kl_0",
     "group": "Kombinasi Logika",
-    "order": 52,
+    "order": 2,
     "gridSize": {
       "width": 12,
       "height": 8
@@ -4641,7 +4641,7 @@ export const levels: Level[] = [
   {
     "id": "kl_1",
     "group": "Kombinasi Logika",
-    "order": 53,
+    "order": 3,
     "gridSize": {
       "width": 12,
       "height": 8
@@ -4781,7 +4781,7 @@ export const levels: Level[] = [
   {
     "id": "kl_2",
     "group": "Kombinasi Logika",
-    "order": 54,
+    "order": 4,
     "gridSize": {
       "width": 12,
       "height": 8
@@ -4921,7 +4921,7 @@ export const levels: Level[] = [
   {
     "id": "kl_3",
     "group": "Kombinasi Logika",
-    "order": 55,
+    "order": 5,
     "gridSize": {
       "width": 12,
       "height": 8
@@ -5061,7 +5061,7 @@ export const levels: Level[] = [
   {
     "id": "kl_4",
     "group": "Kombinasi Logika",
-    "order": 56,
+    "order": 6,
     "gridSize": {
       "width": 12,
       "height": 8
@@ -5201,7 +5201,7 @@ export const levels: Level[] = [
   {
     "id": "kl_5",
     "group": "Kombinasi Logika",
-    "order": 57,
+    "order": 7,
     "gridSize": {
       "width": 12,
       "height": 8
@@ -5341,7 +5341,7 @@ export const levels: Level[] = [
   {
     "id": "kl_6",
     "group": "Kombinasi Logika",
-    "order": 58,
+    "order": 8,
     "gridSize": {
       "width": 12,
       "height": 8
@@ -5481,7 +5481,7 @@ export const levels: Level[] = [
   {
     "id": "kl_7",
     "group": "Kombinasi Logika",
-    "order": 59,
+    "order": 9,
     "gridSize": {
       "width": 12,
       "height": 8
@@ -5621,7 +5621,7 @@ export const levels: Level[] = [
   {
     "id": "kl_8",
     "group": "Kombinasi Logika",
-    "order": 60,
+    "order": 10,
     "gridSize": {
       "width": 12,
       "height": 8
@@ -5761,7 +5761,7 @@ export const levels: Level[] = [
   {
     "id": "kl_9",
     "group": "Kombinasi Logika",
-    "order": 61,
+    "order": 11,
     "gridSize": {
       "width": 12,
       "height": 8
@@ -5901,7 +5901,7 @@ export const levels: Level[] = [
   {
     "id": "kl_10",
     "group": "Kombinasi Logika",
-    "order": 62,
+    "order": 12,
     "gridSize": {
       "width": 12,
       "height": 8
@@ -6041,7 +6041,7 @@ export const levels: Level[] = [
   {
     "id": "kl_11",
     "group": "Kombinasi Logika",
-    "order": 63,
+    "order": 13,
     "gridSize": {
       "width": 12,
       "height": 8
@@ -6181,7 +6181,7 @@ export const levels: Level[] = [
   {
     "id": "kl_12",
     "group": "Kombinasi Logika",
-    "order": 64,
+    "order": 14,
     "gridSize": {
       "width": 12,
       "height": 8
@@ -6321,7 +6321,7 @@ export const levels: Level[] = [
   {
     "id": "kl_13",
     "group": "Kombinasi Logika",
-    "order": 65,
+    "order": 15,
     "gridSize": {
       "width": 12,
       "height": 8
@@ -6461,7 +6461,7 @@ export const levels: Level[] = [
   {
     "id": "kl_14",
     "group": "Kombinasi Logika",
-    "order": 66,
+    "order": 16,
     "gridSize": {
       "width": 12,
       "height": 8
@@ -6601,7 +6601,7 @@ export const levels: Level[] = [
   {
     "id": "kl_15",
     "group": "Kombinasi Logika",
-    "order": 67,
+    "order": 17,
     "gridSize": {
       "width": 12,
       "height": 8
@@ -6741,7 +6741,7 @@ export const levels: Level[] = [
   {
     "id": "kl_16",
     "group": "Kombinasi Logika",
-    "order": 68,
+    "order": 18,
     "gridSize": {
       "width": 12,
       "height": 8
@@ -6881,7 +6881,7 @@ export const levels: Level[] = [
   {
     "id": "kl_17",
     "group": "Kombinasi Logika",
-    "order": 69,
+    "order": 19,
     "gridSize": {
       "width": 12,
       "height": 8
@@ -7021,7 +7021,7 @@ export const levels: Level[] = [
   {
     "id": "kl_18",
     "group": "Kombinasi Logika",
-    "order": 70,
+    "order": 20,
     "gridSize": {
       "width": 12,
       "height": 8
