@@ -9,6 +9,8 @@
   import { progressStore } from './lib/progress.svelte';
   import type { ComponentType, SimulationResult } from './engine/types';
 
+  import { initLanguage, t } from './lib/i18n';
+
   let currentLevelId = $state<string | null>(null);
   let selectedComponent = $state<ComponentType | null>(null);
   let simulationResult = $state<SimulationResult | null>(null);
@@ -18,6 +20,11 @@
   let level = $derived(levels.find(l => l.id === currentLevelId));
 
   let isProcessing = $state(false);
+
+  // Initialize on mount
+  $effect(() => {
+    initLanguage();
+  });
 
   function startLevel(id: string) {
     currentLevelId = id;
@@ -72,12 +79,12 @@
       <header class="h-auto min-h-[4rem] cyber-panel border-b-2 border-[var(--color-primary)] flex flex-wrap items-center px-4 md:px-6 py-2 gap-2 justify-between shadow-[0_5px_20px_rgba(236,72,153,0.15)] relative z-20 rounded-none !clip-none">
         <div class="flex items-center gap-3 md:gap-6 shrink-0">
           <button onclick={goBack} class="cyber-button-alt px-3 py-1.5 md:px-4 text-xs flex items-center gap-1 md:gap-2 group">
-            <span class="text-lg leading-none group-hover:-translate-x-1 transition-transform">&larr;</span> <span class="hidden sm:inline">ABORT</span>
+            <span class="text-lg leading-none group-hover:-translate-x-1 transition-transform">&larr;</span> <span class="hidden sm:inline">{t('ui.abort')}</span>
           </button>
           <div class="h-6 w-0.5 bg-[var(--color-border)] hidden sm:block"></div>
           <h1 class="text-sm md:text-xl font-bold font-heading tracking-widest drop-shadow-[0_0_8px_var(--color-primary)] flex items-center gap-2">
             <span class="text-[var(--color-primary)]">SYS.{level.order}</span>
-            <span class="text-white hidden sm:inline">{level.group}</span>
+            <span class="text-white hidden sm:inline">{t(`group.${level.group}` as any)}</span>
           </h1>
         </div>
         <div class="flex shrink-0">
@@ -85,7 +92,7 @@
             onclick={handleRun}
             class="cyber-button px-5 md:px-8 py-2 md:py-2 text-[var(--color-on-primary)] shadow-[0_0_15px_rgba(236,72,153,0.4)] text-xs md:text-sm font-black"
           >
-            EXECUTE
+            {t('ui.execute')}
           </button>
         </div>
       </header>
@@ -101,14 +108,14 @@
 
           <div class="cyber-panel p-4 relative">
             <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[var(--color-primary)] to-transparent"></div>
-            <h3 class="text-xs font-bold text-[var(--color-primary)] uppercase tracking-widest mb-4 font-heading pl-2">Specifications</h3>
+            <h3 class="text-xs font-bold text-[var(--color-primary)] uppercase tracking-widest mb-4 font-heading pl-2">{t('ui.specs')}</h3>
             <div class="text-sm">
               <div class="flex justify-between items-center bg-[var(--color-background)] p-3 border border-[var(--color-border)] mb-4 shadow-inner">
-                <span class="text-[var(--color-muted-foreground)]">Par Components:</span>
+                <span class="text-[var(--color-muted-foreground)]">{t('ui.par')}</span>
                 <span class="font-bold text-[var(--color-accent)] font-heading text-lg">{level.par.maxComponents}</span>
               </div>
               <div class="mt-4 overflow-x-auto">
-                <p class="font-bold text-[10px] text-[var(--color-muted-foreground)] mb-2 uppercase tracking-widest">Truth Table</p>
+                <p class="font-bold text-[10px] text-[var(--color-muted-foreground)] mb-2 uppercase tracking-widest">{t('ui.truth_table')}</p>
                 <div class="border border-[var(--color-border)] bg-[var(--color-background)] min-w-max">
                   <table class="w-full text-center border-collapse">
                     <thead class="bg-[var(--color-muted)] border-b border-[var(--color-border)]">
@@ -150,14 +157,14 @@
           <div class="absolute inset-0 pointer-events-none opacity-[0.05] bg-[linear-gradient(var(--color-secondary)_1px,transparent_1px),linear-gradient(90deg,var(--color-secondary)_1px,transparent_1px)] bg-[size:30px_30px] z-0"></div>
           <div class="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.5)_50%),linear-gradient(90deg,rgba(236,72,153,0.03),rgba(0,255,0,0.01),rgba(139,92,246,0.03))] bg-[length:100%_4px,3px_100%] z-0"></div>
           
-          {#if level.description}
+          {#if level.id.startsWith('t_')}
             <div class="cyber-panel p-4 mb-4 relative z-20 shrink-0 bg-[rgba(15,23,42,0.9)] backdrop-blur-md border-[var(--color-secondary)]">
               <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--color-secondary)] to-transparent"></div>
               <h3 class="text-xs font-bold text-[var(--color-secondary)] uppercase tracking-widest mb-1 font-heading flex items-center gap-2">
                 <span class="w-2 h-2 bg-[var(--color-secondary)] animate-pulse rounded-full shadow-[0_0_5px_var(--color-secondary)]"></span>
-                Incoming Transmission
+                {t('ui.transmission')}
               </h3>
-              <p class="text-sm text-[var(--color-foreground)] whitespace-pre-wrap leading-relaxed opacity-90 font-mono mt-2">{level.description}</p>
+              <p class="text-sm text-[var(--color-foreground)] whitespace-pre-wrap leading-relaxed opacity-90 font-mono mt-2">{t(`desc.${level.id}` as any)}</p>
             </div>
           {/if}
           
@@ -184,8 +191,8 @@
             <div class="w-16 h-16 rounded-full border-4 border-[var(--color-border)] border-t-[var(--color-primary)] border-b-[var(--color-secondary)] animate-spin shadow-[0_0_15px_var(--color-primary)]"></div>
             
             <div class="text-center">
-              <h2 class="text-xl font-heading font-black text-[var(--color-primary)] tracking-widest drop-shadow-[0_0_8px_var(--color-primary)] animate-pulse-fast">ANALYZING</h2>
-              <p class="text-xs text-[var(--color-muted-foreground)] mt-2 font-mono uppercase tracking-widest">Validating logic pathways...</p>
+              <h2 class="text-xl font-heading font-black text-[var(--color-primary)] tracking-widest drop-shadow-[0_0_8px_var(--color-primary)] animate-pulse-fast">{t('ui.analyzing')}</h2>
+              <p class="text-xs text-[var(--color-muted-foreground)] mt-2 font-mono uppercase tracking-widest">{t('ui.validating')}</p>
             </div>
             
             <div class="w-full h-1 bg-[var(--color-border)] mt-2">

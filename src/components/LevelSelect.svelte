@@ -1,6 +1,7 @@
 <script lang="ts">
   import { levels } from '../data/levels';
   import { progressStore } from '../lib/progress.svelte';
+  import { t } from '../lib/i18n';
 
   let { onSelectLevel } = $props<{
     onSelectLevel: (id: string) => void;
@@ -18,18 +19,18 @@
     <div class="flex flex-col md:flex-row items-center justify-between mb-12 border-b-2 border-[var(--color-secondary)] pb-6">
       <div class="text-center md:text-left">
         <h1 class="text-5xl md:text-6xl font-black font-heading text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] tracking-widest drop-shadow-[0_0_15px_rgba(236,72,153,0.5)]">ELENCHUS</h1>
-        <p class="text-[var(--color-accent)] font-heading text-sm mt-2 tracking-widest uppercase">Logic Protocol Simulation</p>
+        <p class="text-[var(--color-accent)] font-heading text-sm mt-2 tracking-widest uppercase">{t('ui.subtitle')}</p>
       </div>
       <div class="mt-6 md:mt-0 text-right text-xs text-[var(--color-muted-foreground)]">
-        <p class="font-heading">SYS_STATUS: <span class="text-[var(--color-primary)] animate-pulse">ONLINE</span></p>
-        <p class="font-heading">USER_ID: ROOT_ACCESS</p>
+        <p class="font-heading">{t('ui.status')}</p>
+        <p class="font-heading">{t('ui.user')}</p>
       </div>
     </div>
     
     <div class="flex flex-col gap-12">
       {#each groups as group}
         <div class="relative">
-          <h2 class="text-xl font-heading font-bold text-[var(--color-foreground)] border-l-4 border-[var(--color-primary)] pl-4 mb-6 uppercase tracking-widest drop-shadow-[0_0_5px_var(--color-primary)]">{group}</h2>
+          <h2 class="text-xl font-heading font-bold text-[var(--color-foreground)] border-l-4 border-[var(--color-primary)] pl-4 mb-6 uppercase tracking-widest drop-shadow-[0_0_5px_var(--color-primary)]">{t(`group.${group}` as any)}</h2>
           <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
             {#each levels.filter(l => l.group === group) as level}
               <button 
@@ -49,10 +50,10 @@
                   {#if progressStore.isCompleted(level.id)}
                     <span class="text-[10px] text-[var(--color-accent)] uppercase tracking-widest flex items-center gap-1.5 font-bold">
                       <div class="w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse shadow-[0_0_5px_var(--color-accent)]"></div>
-                      Cleared
+                      {t('ui.cleared')}
                     </span>
                   {:else}
-                    <span class="text-[10px] text-[var(--color-muted-foreground)] uppercase tracking-widest">Locked</span>
+                    <span class="text-[10px] text-[var(--color-muted-foreground)] uppercase tracking-widest">{t('ui.locked')}</span>
                   {/if}
                 </div>
               </button>

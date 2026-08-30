@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { ComponentType } from '../engine/types';
+  import { t } from '../lib/i18n';
   
   let { 
     availableComponents, 
@@ -17,7 +18,7 @@
   <div class="absolute top-0 right-0 w-2 h-2 bg-[var(--color-accent)] animate-pulse"></div>
   <h2 class="text-xs font-bold text-[var(--color-foreground)] uppercase tracking-widest flex items-center gap-2 font-heading shrink-0">
     <div class="w-3 h-3 bg-[var(--color-primary)] clip-triangle"></div>
-    Hardware
+    {t('ui.components')}
   </h2>
   
   <div class="flex flex-row md:flex-col gap-3 overflow-x-auto md:overflow-x-visible pb-2 md:pb-0 scrollbar-thin scrollbar-thumb-[var(--color-primary)] scrollbar-track-transparent snap-x">
