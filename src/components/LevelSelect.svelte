@@ -86,8 +86,13 @@
                       <div class="w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse shadow-[0_0_5px_var(--color-accent)]"></div>
                       {t('ui.cleared')}
                     </span>
+                  {:else if isUnlocked(level)}
+                    <span class="text-[10px] text-[var(--color-secondary)] uppercase tracking-widest flex items-center gap-1.5 font-bold">
+                      <div class="w-2 h-2 rounded-full bg-[var(--color-secondary)] animate-pulse shadow-[0_0_5px_var(--color-secondary)]"></div>
+                      {t('ui.pending')}
+                    </span>
                   {:else}
-                    <span class="text-[10px] {isUnlocked(level) ? 'text-[var(--color-muted-foreground)]' : 'text-[var(--color-destructive)] opacity-70'} uppercase tracking-widest">{t('ui.locked')}</span>
+                    <span class="text-[10px] text-[var(--color-destructive)] opacity-70 uppercase tracking-widest">{t('ui.locked')}</span>
                   {/if}
                 </div>
               </button>
