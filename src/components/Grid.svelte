@@ -29,7 +29,8 @@
   let drawingWireFrom = $state<string | null>(null);
   let mousePos = $state<{x: number, y: number} | null>(null);
 
-  function handleGridClick(e: MouseEvent) {
+  function handleGridPointerDown(e: PointerEvent) {
+    if (e.button !== 0 && e.pointerType === 'mouse') return; // only left click
     if (!selectedComponent) return;
 
     const rect = (e.currentTarget as SVGSVGElement).getBoundingClientRect();
@@ -43,7 +44,8 @@
     }
   }
 
-  function handleNodeClick(id: string, e: MouseEvent) {
+  function handleNodePointerDown(id: string, e: PointerEvent) {
+    if (e.button !== 0 && e.pointerType === 'mouse') return;
     e.stopPropagation();
     if (selectedComponent === 'WIRE') {
       if (!drawingWireFrom) {
@@ -61,7 +63,7 @@
     }
   }
 
-  function handleMouseMove(e: MouseEvent) {
+  function handlePointerMove(e: PointerEvent) {
     if (drawingWireFrom) {
       const rect = (e.currentTarget as SVGSVGElement).getBoundingClientRect();
       mousePos = {
@@ -88,9 +90,9 @@
     role="application"
     width={gridWidth} 
     height={gridHeight} 
-    class="block"
-    onclick={handleGridClick}
-    onmousemove={handleMouseMove}
+    class="block touch-none"
+    onpointerdown={handleGridPointerDown}
+    onpointermove={handlePointerMove}
   >
     <defs>
       <pattern id="gridPattern" width={CELL_SIZE} height={CELL_SIZE} patternUnits="userSpaceOnUse">
@@ -132,7 +134,7 @@
         role="button"
         tabindex="0"
         transform="translate({node.position.x * CELL_SIZE}, {node.position.y * CELL_SIZE})"
-        onclick={(e) => handleNodeClick(node.id, e)}
+        onpointerdown={(e) => handleNodePointerDown(node.id, e)}
         class="cursor-pointer"
       >
         <Node type={node.type} size={CELL_SIZE} label={node.ioId || ''} />
