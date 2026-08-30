@@ -18,11 +18,11 @@ Elencus is a complex, cyberpunk-themed logic puzzle game built with Svelte, Type
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/FerrDxD/elencus.git
+   git clone https://github.com/FerrDxD/elenchus.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd elencus
+   cd elenchus
    ```
 3. Install dependencies:
    ```bash
