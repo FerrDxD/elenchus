@@ -29,7 +29,7 @@
   }
 </script>
 
-<div class="min-h-screen bg-[var(--color-background)] py-16 px-8 relative flex flex-col items-center justify-start overflow-auto">
+<div class="min-h-dvh bg-[var(--color-background)] py-16 px-8 relative flex flex-col items-center justify-start overflow-auto">
   <!-- Decorative grid -->
   <div class="absolute inset-0 pointer-events-none opacity-20" style="background-image: linear-gradient(var(--color-primary) 1px, transparent 1px), linear-gradient(90deg, var(--color-primary) 1px, transparent 1px); background-size: 50px 50px; transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);"></div>
   

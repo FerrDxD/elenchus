@@ -20,6 +20,7 @@
   let level = $derived(levels.find(l => l.id === currentLevelId));
 
   let isProcessing = $state(false);
+  let mobileTab = $state<'grid' | 'panel'>('grid');
 
   // Initialize on mount
   $effect(() => {
@@ -68,11 +69,11 @@
   }
 </script>
 
-<main class="min-h-screen text-[var(--color-foreground)] bg-[var(--color-background)] selection:bg-[var(--color-primary)] selection:text-white">
+<main class="min-h-dvh text-[var(--color-foreground)] bg-[var(--color-background)] selection:bg-[var(--color-primary)] selection:text-white">
   {#if !currentLevelId || !level}
     <LevelSelect onSelectLevel={startLevel} />
   {:else}
-    <div class="h-screen flex flex-col relative overflow-hidden">
+    <div class="h-dvh flex flex-col relative overflow-hidden">
       <!-- Background Cyber Grid -->
       <div class="absolute inset-0 pointer-events-none opacity-[0.03] bg-[linear-gradient(var(--color-primary)_1px,transparent_1px),linear-gradient(90deg,var(--color-primary)_1px,transparent_1px)] bg-[size:40px_40px] z-0"></div>
 
@@ -98,12 +99,12 @@
       </header>
       
       <div class="flex-1 flex flex-col md:flex-row overflow-hidden relative z-10 min-h-0">
-        <!-- Sidebar: Bottom on mobile, Left on desktop -->
-        <div class="w-full md:w-80 h-[40vh] md:h-full cyber-panel rounded-none border-t-2 md:border-t-0 border-b-0 border-l-0 md:border-r-2 border-[var(--color-border)] p-4 md:p-5 flex flex-col gap-4 md:gap-6 overflow-y-auto scrollbar-thin scrollbar-thumb-[var(--color-primary)] scrollbar-track-transparent order-2 md:order-1 shrink-0">
+        <!-- Sidebar: Tabs on mobile, Left on desktop -->
+        <div class="{mobileTab === 'panel' ? 'flex' : 'hidden'} md:flex w-full md:w-80 h-full cyber-panel rounded-none border-t-0 md:border-t-0 border-b-0 border-l-0 md:border-r-2 border-[var(--color-border)] p-4 md:p-5 flex-col gap-4 md:gap-6 overflow-y-auto scrollbar-thin scrollbar-thumb-[var(--color-primary)] scrollbar-track-transparent order-2 md:order-1 shrink-0">
           <ComponentPalette 
             availableComponents={level.availableComponents}
             selectedComponent={selectedComponent}
-            onSelect={(c) => selectedComponent = c}
+            onSelect={(c) => { selectedComponent = c; mobileTab = 'grid'; }}
           />
 
           <div class="cyber-panel p-4 relative">
@@ -152,7 +153,7 @@
         </div>
 
         <!-- Grid Area -->
-        <div class="flex-1 flex flex-col p-2 md:p-8 relative bg-[var(--color-card)] shadow-[inset_0_0_50px_rgba(0,0,0,0.8)] z-0 order-1 md:order-2 min-h-0">
+        <div class="{mobileTab === 'grid' ? 'flex' : 'hidden'} md:flex flex-1 flex-col p-2 md:p-8 relative bg-[var(--color-card)] shadow-[inset_0_0_50px_rgba(0,0,0,0.8)] z-0 order-1 md:order-2 min-h-0">
           <!-- Background scanline effect & Grid -->
           <div class="absolute inset-0 pointer-events-none opacity-[0.05] bg-[linear-gradient(var(--color-secondary)_1px,transparent_1px),linear-gradient(90deg,var(--color-secondary)_1px,transparent_1px)] bg-[size:30px_30px] z-0"></div>
           <div class="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.5)_50%),linear-gradient(90deg,rgba(236,72,153,0.03),rgba(0,255,0,0.01),rgba(139,92,246,0.03))] bg-[length:100%_4px,3px_100%] z-0"></div>
@@ -180,6 +181,22 @@
             />
           </div>
         </div>
+      </div>
+
+      <!-- Mobile Bottom Nav -->
+      <div class="md:hidden flex h-14 border-t-2 border-[var(--color-border)] bg-[var(--color-card)] shrink-0 relative z-20">
+        <button 
+          class="flex-1 flex items-center justify-center font-heading text-xs font-bold transition-all {mobileTab === 'grid' ? 'text-[var(--color-primary)] border-t-2 border-[var(--color-primary)] bg-[rgba(236,72,153,0.1)]' : 'text-[var(--color-muted-foreground)] border-t-2 border-transparent'}"
+          onclick={() => mobileTab = 'grid'}
+        >
+          {t('ui.grid')}
+        </button>
+        <button 
+          class="flex-1 flex items-center justify-center font-heading text-xs font-bold transition-all {mobileTab === 'panel' ? 'text-[var(--color-primary)] border-t-2 border-[var(--color-primary)] bg-[rgba(236,72,153,0.1)]' : 'text-[var(--color-muted-foreground)] border-t-2 border-transparent'}"
+          onclick={() => mobileTab = 'panel'}
+        >
+          {t('ui.tools')}
+        </button>
       </div>
 
       {#if isProcessing}
